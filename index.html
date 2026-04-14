@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>NeuroAxis Hospital & Path Lab | Advanced Care & Diagnostics</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f7fc;
+      color: #1e2a3e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header & navigation */
+    .navbar {
+      background: linear-gradient(135deg, #0b2b3b 0%, #0f3b4f 100%);
+      color: white;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .logo p {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #FFD966;
+      border-bottom: 2px solid #FFD966;
+      padding-bottom: 4px;
+    }
+
+    /* hero section */
+    .hero {
+      background: linear-gradient(105deg, #eef2f5 0%, #ffffff 100%);
+      padding: 60px 0 50px;
+      border-bottom: 1px solid #dce5ec;
+    }
+    .hero-flex {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .hero-content h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #0b2b3b;
+      margin-bottom: 16px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 550px;
+      color: #2c4b5e;
+      margin-bottom: 24px;
+    }
+    .contact-highlight {
+      background: white;
+      padding: 14px 20px;
+      border-radius: 60px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+      border: 1px solid #cbdde6;
+    }
+    .contact-highlight span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .contact-highlight i {
+      margin-right: 8px;
+      color: #1f7b8c;
+    }
+    .hero-icon {
+      font-size: 7rem;
+      color: #1f7b8c;
+      background: rgba(31,123,140,0.1);
+      padding: 20px;
+      border-radius: 60px;
+    }
+
+    /* common page sections */
+    .page-section {
+      padding: 60px 0;
+      border-bottom: 1px solid #e2edf2;
+      background: white;
+    }
+    .page-section:nth-child(even) {
+      background-color: #fafeff;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: #0f3b4f;
+      border-left: 6px solid #2c9ab3;
+      padding-left: 20px;
+    }
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background: #eef5f9;
+      padding: 30px;
+      border-radius: 28px;
+      margin-top: 10px;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .contact-info-card {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border: 1px solid #dceef5;
+    }
+    .contact-info-card i {
+      font-size: 2rem;
+      color: #1f7b8c;
+      margin-bottom: 18px;
+    }
+    .contact-info-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    .address-block {
+      font-style: normal;
+      line-height: 1.7;
+    }
+    .map-placeholder {
+      background: #e9f0f4;
+      border-radius: 28px;
+      padding: 18px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #2a5f6e;
+    }
+    /* policy & terms */
+    .legal-box {
+      background: #fefef7;
+      padding: 28px 32px;
+      border-radius: 28px;
+      border-left: 5px solid #2c9ab3;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .legal-box h3 {
+      margin: 20px 0 12px 0;
+      font-size: 1.3rem;
+      color: #115b6e;
+    }
+    .legal-box p, .legal-box li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .legal-box ul {
+      padding-left: 26px;
+      margin: 12px 0;
+    }
+    hr {
+      margin: 28px 0;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, #cbdde6, transparent);
+    }
+    footer {
+      background: #0e2a36;
+      color: #cfdfe8;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .footer-copyright {
+      border-top: 1px solid #2b5265;
+      padding-top: 24px;
+      margin-top: 16px;
+    }
+    button, .btn {
+      background: #1f7b8c;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 40px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-small {
+      font-size: 0.8rem;
+      background: #115b6e;
+    }
+    @media (max-width: 800px) {
+      .nav-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+      .contact-highlight {
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <h1>🧠 NEUROAXIS</h1>
+        <p>Hospital & Path Lab</p>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#" data-page="home" class="active">🏠 Home</a>
+        <a href="#" data-page="about">📖 About Us</a>
+        <a href="#" data-page="contact">📞 Contact</a>
+        <a href="#" data-page="privacy">🔒 Privacy Policy</a>
+        <a href="#" data-page="terms">⚖️ Terms & Conditions</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HOME PAGE (default visible) -->
+    <div id="home-page">
+      <section class="hero">
+        <div class="container hero-flex">
+          <div class="hero-content">
+            <h2>Precision Neurology &<br>Advanced Diagnostics</h2>
+            <p>Compassionate care, cutting-edge pathology — your health is our mission.</p>
+            <div class="contact-highlight">
+              <span><i class="fas fa-phone-alt"></i> 9899508507</span>
+              <span><i class="fas fa-envelope"></i> jd.dhameliya@gmail.com</span>
+              <span><i class="fas fa-map-marker-alt"></i> Surat, Gujarat</span>
+            </div>
+          </div>
+          <div class="hero-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="container">
+          <div class="section-title">Why NeuroAxis?</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+            <div style="flex:1; background:#fff; border-radius: 24px; padding: 24px; box-shadow: 0 5px 12px rgba(0,0,0,0.03); border:1px solid #e2edf2;">
+              <i class="fas fa-microscope" style="font-size: 2.2rem; color:#1f7b8c;"></i>
+              <h3 style="margin: 16px 0 8px;">Modern Path Lab</h3>
+              <p>Fully automated hematology, biochemistry & molecular diagnostics.</p>
+            </div>
+            <div style="flex:1; background:#fff; border-radius: 24px; padding: 24px; box-shadow: 0 5px 12px rgba(0,0,0,0.03); border:1px solid #e2edf2;">
+              <i class="fas fa-user-md" style="font-size: 2.2rem; color:#1f7b8c;"></i>
+              <h3 style="margin: 16px 0 8px;">Expert Neurologists</h3>
+              <p>Specialized in stroke, epilepsy, migraine & neuro-rehabilitation.</p>
+            </div>
+            <div style="flex:1; background:#fff; border-radius: 24px; padding: 24px; box-shadow: 0 5px 12px rgba(0,0,0,0.03); border:1px solid #e2edf2;">
+              <i class="fas fa-clock" style="font-size: 2.2rem; color:#1f7b8c;"></i>
+              <h3 style="margin: 16px 0 8px;">24/7 Support</h3>
+              <p>Emergency response & round-the-clock lab collection services.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section" style="background:#f9fdfe;">
+        <div class="container">
+          <div class="section-title">Quick Contact & Location</div>
+          <div class="contact-grid">
+            <div class="contact-info-card">
+              <i class="fas fa-building"></i>
+              <h3>Visit Us</h3>
+              <address class="address-block">
+                <strong>NEUROAXIS HOSPITAL & PATH LAB</strong><br>
+                Flat/Door/Block No. 403, 4TH FLOOR,<br>
+                MANGALDEEP COMPLEX, HIRABAUG,<br>
+                KAPODRA ROAD, VARACHHA ROAD,<br>
+                SURAT - 395006, GUJARAT<br>
+                District: SURAT
+              </address>
+              <div class="map-placeholder">
+                <i class="fas fa-map-pin"></i> 📍 Landmark: Near Hirabaug Circle, Varachha Main Road
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <i class="fas fa-headset"></i>
+              <h3>Get in Touch</h3>
+              <p><i class="fas fa-mobile-alt"></i> <strong>Mobile:</strong> 9899508507</p>
+              <p><i class="fas fa-envelope"></i> <strong>Email:</strong> jd.dhameliya@gmail.com</p>
+              <p><i class="fas fa-calendar-check"></i> <strong>OPD Hours:</strong> Mon-Sat: 9:00 AM – 8:00 PM<br>Path Lab: 7:00 AM – 9:00 PM</p>
+              <button id="quickCallBtn" class="btn" style="margin-top: 20px;"><i class="fas fa-phone"></i> Call Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ABOUT PAGE (hidden by default) -->
+    <div id="about-page" style="display: none;">
+      <section class="page-section">
+        <div class="container">
+          <div class="section-title">About NEUROAXIS HOSPITAL & PATH LAB</div>
+          <div class="about-text">
+            <p><strong>NEUROAXIS HOSPITAL & PATH LAB</strong> is a state-of-the-art healthcare facility located in the heart of Surat, Gujarat. We integrate advanced neurological treatments with high-precision pathology services under one roof. Our mission is to deliver accurate diagnostics, compassionate patient care, and accessible medical excellence.</p>
+            <p style="margin-top: 18px;">Our dedicated team of neurologists, radiologists, and pathologists work in synergy to provide comprehensive care for brain, spine, and nerve disorders. Simultaneously, our NABL-aligned pathology lab offers a wide spectrum of tests — from routine checkups to specialized genetic and autoimmune panels.</p>
+            <p style="margin-top: 18px;">At NeuroAxis, we believe in ethical practices, transparency, and patient-first approach. With cutting-edge equipment and a patient-centric environment, we are redefining neurology and diagnostic services in the region.</p>
+            <hr>
+            <p><i class="fas fa-trophy"></i> <strong>Our core values:</strong> Integrity, Innovation, Empathy, and Accuracy.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTACT PAGE (hidden) -->
+    <div id="contact-page" style="display: none;">
+      <section class="page-section">
+        <div class="container">
+          <div class="section-title">Contact Us</div>
+          <div class="contact-grid">
+            <div class="contact-info-card">
+              <i class="fas fa-hospital-user"></i>
+              <h3>NEUROAXIS Hospital & Path Lab</h3>
+              <address style="font-style: normal; line-height: 1.7;">
+                <strong>📍 Physical Address:</strong><br>
+                Flat/Door/Block No. 403, 4TH FLOOR,<br>
+                Name of Premises/ Building: MANGALDEEP COMPLEX,<br>
+                Village/Town: HIRABAUG, Block: KAPODRA,<br>
+                Road/Street/Lane: VARACHHA ROAD,<br>
+                City: SURAT, State: GUJARAT,<br>
+                District: SURAT, Pin Code: 395006
+              </address>
+              <div class="map-placeholder" style="margin-top: 18px;">
+                <i class="fas fa-directions"></i> <strong>Google Maps Reference:</strong> Varachha Road, near Hirabaug circle, above Mangaldeep Complex 4th floor.
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <i class="fas fa-phone-volume"></i>
+              <h3>Communication</h3>
+              <p><i class="fas fa-phone"></i> <strong>Mobile:</strong> <a href="tel:9899508507" style="color:#1f7b8c; text-decoration: none;">9899508507</a></p>
+              <p><i class="fas fa-envelope-open-text"></i> <strong>Email:</strong> <a href="mailto:jd.dhameliya@gmail.com" style="color:#1f7b8c;">jd.dhameliya@gmail.com</a></p>
+              <p><i class="fas fa-clock"></i> <strong>Emergency Contact:</strong> +91 9899508507 (24x7)</p>
+              <p><strong>For appointments & reports:</strong> WhatsApp available on same number.</p>
+              <button id="contactEmailBtn" class="btn" style="margin-top: 15px; background:#115b6e;"><i class="fas fa-envelope"></i> Send Email Inquiry</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PRIVACY POLICY PAGE -->
+    <div id="privacy-page" style="display: none;">
+      <section class="page-section">
+        <div class="container">
+          <div class="section-title">Privacy Policy</div>
+          <div class="legal-box">
+            <p><strong>Last updated:</strong> April 2026</p>
+            <p>NEUROAXIS HOSPITAL & PATH LAB (“we”, “our”, or “us”) respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our hospital or use our digital platforms.</p>
+            <h3>1. Information We Collect</h3>
+            <p>We may collect personal details such as name, contact number, email, address, medical history, diagnostic reports, and insurance information necessary for treatment and lab services.</p>
+            <h3>2. How We Use Your Data</h3>
+            <p>Your data is used for medical diagnosis, treatment coordination, lab report generation, billing, and communication regarding appointments. We never sell your personal data to third parties.</p>
+            <h3>3. Data Security</h3>
+            <p>We implement strict physical, electronic, and procedural safeguards to protect patient data in compliance with Indian healthcare regulations (including IT Act and clinical establishment rules).</p>
+            <h3>4. Retention & Sharing</h3>
+            <p>Medical records are retained as per legal guidelines. Data may be shared with authorized healthcare partners only for continuity of care or legal obligations.</p>
+            <h3>5. Your Rights</h3>
+            <p>You have the right to access, correct, or request deletion of your health information, subject to legal exceptions. Contact us at <strong>jd.dhameliya@gmail.com</strong> or call 9899508507.</p>
+            <p>By using our services, you agree to this privacy policy.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TERMS & CONDITIONS PAGE -->
+    <div id="terms-page" style="display: none;">
+      <section class="page-section">
+        <div class="container">
+          <div class="section-title">Terms & Conditions</div>
+          <div class="legal-box">
+            <p><strong>Effective Date:</strong> 14th April 2026</p>
+            <p>Welcome to NEUROAXIS HOSPITAL & PATH LAB. These terms and conditions outline the rules and regulations for using our hospital services, website, and pathology lab. By accessing our services, you accept these terms.</p>
+            <h3>1. Medical Disclaimer</h3>
+            <p>All content and information provided are for general informational purposes. Always seek the advice of your physician or qualified health provider with any medical questions.</p>
+            <h3>2. Appointment & Lab Testing</h3>
+            <p>Patients must provide accurate personal and medical history. Test results are confidential and shared only with authorized individuals. Payment for services must be completed as per hospital policy.</p>
+            <h3>3. Teleconsultation & Communication</h3>
+            <p>Any electronic communication (email, SMS) may be used for appointment reminders and health alerts. We are not liable for technical failures beyond our control.</p>
+            <h3>4. Cancellation & Refund</h3>
+            <p>Clinic appointments: cancellation at least 2 hours prior. Lab test refunds are subject to sample viability – contact billing department for queries.</p>
+            <h3>5. Code of Conduct</h3>
+            <p>Patients and visitors are expected to behave respectfully toward staff and other patients. Aggressive behavior may lead to denial of service.</p>
+            <h3>6. Governing Law</h3>
+            <p>These terms are governed by the laws of India, and any disputes shall be subject to the jurisdiction of courts in Surat, Gujarat.</p>
+            <p>For any concerns, reach us at: <strong>9899508507</strong> or email <strong>jd.dhameliya@gmail.com</strong>.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center;">
+        <div><strong>🧠 NEUROAXIS HOSPITAL & PATH LAB</strong><br>Advanced Neurology & Diagnostic Center</div>
+        <div><i class="fas fa-phone"></i> 9899508507 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> jd.dhameliya@gmail.com</div>
+      </div>
+      <div class="footer-copyright">
+        © Copyright 2026 NEUROAXIS HOSPITAL & PATH LAB. All rights reserved. | Designed with care for patient wellness.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // page navigation handler
+    const pages = {
+      home: document.getElementById('home-page'),
+      about: document.getElementById('about-page'),
+      contact: document.getElementById('contact-page'),
+      privacy: document.getElementById('privacy-page'),
+      terms: document.getElementById('terms-page')
+    };
+
+    function showPage(pageId) {
+      // hide all pages
+      Object.values(pages).forEach(page => {
+        if (page) page.style.display = 'none';
+      });
+      if (pages[pageId]) {
+        pages[pageId].style.display = 'block';
+      } else {
+        pages.home.style.display = 'block';
+      }
+      // update active class on nav links
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        const linkPage = link.getAttribute('data-page');
+        if (linkPage === pageId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      // scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // attach event listeners to navigation
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.getAttribute('data-page');
+        if (page && pages[page]) {
+          showPage(page);
+        } else {
+          showPage('home');
+        }
+      });
+    });
+
+    // quick call & email actions
+    const callBtn = document.getElementById('quickCallBtn');
+    if (callBtn) {
+      callBtn.addEventListener('click', () => {
+        window.location.href = 'tel:9899508507';
+      });
+    }
+    const emailBtn = document.getElementById('contactEmailBtn');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', () => {
+        window.location.href = 'mailto:jd.dhameliya@gmail.com?subject=Inquiry%20from%20NeuroAxis%20Website&body=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services.';
+      });
+    }
+
+    // If any direct hash or default home
+    const initialPage = window.location.hash.substring(1);
+    if (initialPage && pages[initialPage]) {
+      showPage(initialPage);
+    } else {
+      showPage('home');
+    }
+  </script>
+</body>
+</html>
